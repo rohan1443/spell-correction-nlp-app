@@ -42,26 +42,37 @@ function App() {
 
   return (
     <div className="min-h-screen max-w-5xl mx-auto p-6 font-sans text-slate-800">
-      
+
       {/* HEADER */}
-      <header className="mb-10 text-center">
+      <header className="mb-6 text-center">
         <h1 className="text-4xl font-extrabold text-slate-900 flex justify-center items-center gap-3">
-          <SquareActivity className="text-blue-600" size={50}/> MindScribe AI Spell Corrector
+          <SquareActivity className="text-blue-600" size={50} /> MindScribeNLP Spell Corrector
         </h1>
-        <p className="text-xl font-semibold mt-6">Precision NLP for Mental Health Corpora</p>
-        <p className="text-slate-500">Decoding Support, One Word at a Time</p>
+        {/* <p className="text-xl font-semibold mt-6">Precision NLP for Mental Health Corpora</p> */}
+        <p className="text-xl font-semibold mt-1">Decoding Support, One Word at a Time</p>
       </header>
+      {/* SUBHEADER */}
+
+      <p className="text-slate-600 max-w-3xl mx-auto mb-6 text-sm leading-relaxed">
+        MindScribeNLP explores the statistical roots of Generative AI. By calculating the probability of word sequences, it mimics the early decoding steps of a Transformer model, replicating the foundation concepts.
+        <br className="hidden md:block" />
+        <span className="block mt-2 p-2 bg-slate-100 rounded-lg border border-slate-200">
+          <strong className="text-slate-800">Constraint:</strong> This system utilizes a specific <em className="not-italic font-semibold text-slate-700">Mental Health corpus</em>, meaning its 'worldview' is limited to that domain. It is not a full-fledged correction system and is prone to errors when faced with unfamiliar vocabulary.
+          It works best on sentences regarding emotions or therapy, but may produce hallucinations or misses on general text. Use it to visualize the math behind the magic.
+        </span>
+      </p>
+
 
       {/* TABS */}
       <div className="flex justify-center gap-4 mb-8">
-        <TabButton icon={<Type size={18}/>} label="Smart Editor" active={activeTab === 'editor'} onClick={() => setActiveTab('editor')} />
-        <TabButton icon={<BookOpen size={18}/>} label="Corpus Explorer" active={activeTab === 'corpus'} onClick={() => setActiveTab('corpus')} />
+        <TabButton icon={<Type size={18} />} label="Smart Editor" active={activeTab === 'editor'} onClick={() => setActiveTab('editor')} />
+        <TabButton icon={<BookOpen size={18} />} label="Corpus Explorer" active={activeTab === 'corpus'} onClick={() => setActiveTab('corpus')} />
       </div>
 
       {/* EDITOR TAB */}
       {activeTab === 'editor' && (
         <div className="grid md:grid-cols-2 gap-8">
-          
+
           {/* LEFT: INPUT */}
           <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
             <div className="flex justify-between items-center mb-4">
@@ -88,7 +99,7 @@ function App() {
           {/* RIGHT: RESULTS */}
           <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 min-h-[400px]">
             <h3 className="font-semibold text-slate-700 mb-4">Analysis & Correction</h3>
-            
+
             {!analysis && (
               <div className="flex flex-col items-center justify-center h-64 text-slate-400">
                 <Search size={48} className="mb-2 opacity-20" />
@@ -103,13 +114,12 @@ function App() {
                     <span
                       key={idx}
                       onClick={() => token.is_error && setSelectedToken(token)}
-                      className={`px-1 rounded cursor-pointer transition-all border-b-2 ${
-                        token.is_error 
-                          ? token.error_type === "Non-word" 
-                            ? "bg-red-50 border-red-400 text-red-800 hover:bg-red-100" 
-                            : "bg-amber-50 border-amber-400 text-amber-800 hover:bg-amber-100"
-                          : "border-transparent"
-                      }`}
+                      className={`px-1 rounded cursor-pointer transition-all border-b-2 ${token.is_error
+                        ? token.error_type === "Non-word"
+                          ? "bg-red-50 border-red-400 text-red-800 hover:bg-red-100"
+                          : "bg-amber-50 border-amber-400 text-amber-800 hover:bg-amber-100"
+                        : "border-transparent"
+                        }`}
                     >
                       {token.original}
                     </span>
@@ -124,7 +134,7 @@ function App() {
                       <span className="font-bold text-slate-700">Fix "{selectedToken.original}"</span>
                       <span className="ml-auto text-xs font-bold uppercase tracking-wider text-slate-400">{selectedToken.error_type}</span>
                     </div>
-                    
+
                     <div className="space-y-2">
                       {selectedToken.suggestions.map((sug, i) => (
                         <button
@@ -161,9 +171,8 @@ function TabButton({ icon, label, active, onClick }) {
   return (
     <button
       onClick={onClick}
-      className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all ${
-        active ? 'bg-slate-800 text-white shadow-lg' : 'bg-white text-slate-600 hover:bg-slate-50'
-      }`}
+      className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all ${active ? 'bg-slate-800 text-white shadow-lg' : 'bg-white text-slate-600 hover:bg-slate-50'
+        }`}
     >
       {icon} {label}
     </button>
@@ -185,7 +194,7 @@ function CorpusExplorer() {
     <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
       <div className="relative mb-6">
         <Search className="absolute left-4 top-3.5 text-slate-400" size={20} />
-        <input 
+        <input
           className="w-full pl-12 pr-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
           placeholder="Search dictionary..."
           value={query}
