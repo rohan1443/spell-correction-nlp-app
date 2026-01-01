@@ -57,7 +57,7 @@ function App() {
         MindScribeNLP explores the statistical roots of Generative AI. By calculating the probability of word sequences, it mimics the early decoding steps of a Transformer model, replicating the foundation concepts.
         <br className="hidden md:block" />
         <span className="block mt-2 p-2 bg-slate-100 rounded-lg border border-slate-200">
-          <strong className="text-slate-800">Constraint:</strong> This system utilizes a specific <em className="not-italic font-semibold text-slate-700">Mental Health corpus</em>, meaning its 'worldview' is limited to that domain. It is not a full-fledged correction system and is prone to errors when faced with unfamiliar vocabulary.
+          <strong className="text-slate-800">Constraint:</strong> This system utilizes a specific <em className="not-italic font-semibold text-slate-700">Mental Health corpus</em> from kaggle, meaning its 'worldview' is limited to that domain. It is not a full-fledged correction system and is prone to errors when faced with unfamiliar vocabulary.
           It works best on sentences regarding emotions or therapy, but may produce hallucinations or misses on general text. Use it to visualize the math behind the magic.
         </span>
       </p>
