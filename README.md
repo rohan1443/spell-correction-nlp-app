@@ -22,14 +22,14 @@ We implemented a **Probabilistic Noisy Channel Model** that combines:
 ### Key Features
 * **Context Sensitivity:** Distinguishes between "two", "to", and "too" based on the surrounding sentence.
 * **Dual Error Detection:**
-    * 🔴 **Non-Words:** Flags words not in the vocabulary.
-    * 🟡 **Real-Words:** Flags valid words that are statistically improbable in the specific context.
+    * **Non-Words:** Flags words not in the vocabulary.
+    * **Real-Words:** Flags valid words that are statistically improbable in the specific context.
 * **Glass-Box Architecture:** Fully explainable AI. The UI shows the exact Edit Distance and Probability Score for every suggestion.
 * **Corpus Explorer:** A dedicated tool to visualize the underlying frequency distribution of the Language Model.
 
 ---
 
-## 🛠️ Tech Stack & Architecture
+## Tech Stack & Architecture
 
 The project follows a **Client-Server Architecture** to ensure separation of concerns.
 
@@ -50,7 +50,7 @@ The project follows a **Client-Server Architecture** to ensure separation of con
 
 ---
 
-## 📦 Installation & Setup
+## Installation & Setup
 
 ### Prerequisites
 * Python 3.10+
@@ -103,7 +103,7 @@ npm run dev
 
 ---
 
-## 🖥️ Usage Guide
+## Usage Guide
 
 ### The Smart Editor
 
@@ -111,7 +111,7 @@ npm run dev
 * *Example:* "I want two go home."
 
 
-2. **Analyze:** Click the **✨ Find Errors** button.
+2. **Analyze:** Click the ** Find Errors** button.
 3. **Review:**
 * Words highlighted in **RED** are typos (Non-words).
 * Words highlighted in **YELLOW** are suspicious context errors (Real-words).
@@ -130,7 +130,7 @@ npm run dev
 
 ---
 
-## 📊 Deployment
+## Deployment
 
 The system is deployed on a distributed cloud architecture:
 
@@ -138,9 +138,3 @@ The system is deployed on a distributed cloud architecture:
 * **Backend:** Hosted on **Railway** (Containerized Python Service).
 
 **[🔗 Live Demo Link](https://www.google.com/search?q=https://your-vercel-link.app)** *(Replace this with your actual Vercel URL)*
-
----
-
-## 📝 License
-
-This project is submitted as part of the MSc AI coursework.
